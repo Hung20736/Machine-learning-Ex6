@@ -38,7 +38,6 @@ fprintf(' %d', word_indices);
 fprintf('\n\n');
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 %% ==================== Part 2: Feature Extraction ====================
 %  Now, you will convert each email into a vector of features in R^n. 
@@ -57,7 +56,6 @@ fprintf('Length of feature vector: %d\n', length(features));
 fprintf('Number of non-zero entries: %d\n', sum(features > 0));
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 %% =========== Part 3: Train Linear SVM for Spam Classification ========
 %  In this section, you will train a linear classifier to determine if an
@@ -83,14 +81,14 @@ fprintf('Training Accuracy: %f\n', mean(double(p == y)) * 100);
 
 % Load the test dataset
 % You will have Xtest, ytest in your environment
-load('spamTest.mat');
-
-fprintf('\nEvaluating the trained Linear SVM on a test set ...\n')
-
-p = svmPredict(model, Xtest);
-
-fprintf('Test Accuracy: %f\n', mean(double(p == ytest)) * 100);
-pause;
+% load('spamTest.mat');
+% 
+% fprintf('\nEvaluating the trained Linear SVM on a test set ...\n')
+% 
+% p = svmPredict(model, Xtest);
+% 
+% fprintf('Test Accuracy: %f\n', mean(double(p == ytest)) * 100);
+% pause;
 
 
 %% ================= Part 5: Top Predictors of Spam ====================
@@ -102,17 +100,17 @@ pause;
 %
 
 % Sort the weights and obtin the vocabulary list
-[weight, idx] = sort(model.w, 'descend');
-vocabList = getVocabList();
-
-fprintf('\nTop predictors of spam: \n');
-for i = 1:15
-    fprintf(' %-15s (%f) \n', vocabList{idx(i)}, weight(i));
-end
-
-fprintf('\n\n');
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+% [weight, idx] = sort(model.w, 'descend');
+% vocabList = getVocabList();
+% 
+% fprintf('\nTop predictors of spam: \n');
+% for i = 1:15
+%     fprintf(' %-15s (%f) \n', vocabList{idx(i)}, weight(i));
+% end
+% 
+% fprintf('\n\n');
+% fprintf('\nProgram paused. Press enter to continue.\n');
+% pause;
 
 %% =================== Part 6: Try Your Own Emails =====================
 %  Now that you've trained the spam classifier, you can use it on your own
